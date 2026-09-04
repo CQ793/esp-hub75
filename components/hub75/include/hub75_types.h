@@ -184,9 +184,6 @@ struct Hub75Config {
   // Shift driver chip type (determines initialization sequence)
   Hub75ShiftDriver shift_driver = Hub75ShiftDriver::GENERIC;
 
-  // Row decoder / row addressing mode
-  Hub75RowDecoder row_decoder = Hub75RowDecoder::BINARY;
-
   // ========================================
   // Multi-Panel Physical Layout
   // ========================================
@@ -238,6 +235,9 @@ struct Hub75Config {
   // ========================================
 
   uint8_t brightness = 128;  // Initial brightness 0-255 (default: 128)
+
+  // Row decoder / row addressing mode (appended to preserve positional aggregate initialization)
+  Hub75RowDecoder row_decoder = Hub75RowDecoder::BINARY;
 };
 
 // ============================================================================
@@ -247,7 +247,6 @@ struct Hub75Config {
 
 using ScanPattern [[deprecated("Use Hub75ScanWiring instead")]] = Hub75ScanWiring;
 using ShiftDriver [[deprecated("Use Hub75ShiftDriver instead")]] = Hub75ShiftDriver;
-using RowDecoder [[deprecated("Use Hub75RowDecoder instead")]] = Hub75RowDecoder;
 using PanelLayout [[deprecated("Use Hub75PanelLayout instead")]] = Hub75PanelLayout;
 
 #ifdef __cplusplus
